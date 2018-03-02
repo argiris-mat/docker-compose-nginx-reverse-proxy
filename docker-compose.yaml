@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app1:
+    restart: always
+    image: app:latest
+    expose:
+      - "5000"
+    environment:
+      APP_NAME: "application 1"
+  app2:
+    restart: always
+    image: app:latest
+    expose:
+      - "5000"
+    environment:
+      APP_NAME: "application 2"
+
+  nginx:
+    restart: always
+    image: my-nginx:latest
+    ports:
+      - 80:80
+    links:
+      - app1:app1
+      - app2:app2
