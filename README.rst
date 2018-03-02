@@ -20,7 +20,7 @@ an environment variable and a nginx frontend which acts as a proxy to the backen
 
 The python application has just one route, which renders whatever is configured in the environment variable.
 
-.. code-block: python
+.. code-block:: python
 
     @app.route('/')
     def app_root():
@@ -33,7 +33,7 @@ Allow the application to be usable even when the desired state is not there!
 
 Navigate to the flask_app folder and build the container.
 
-.. code-block: console
+.. code-block:: console
 
     cd flask_app && docker build -t app:latest .
 
@@ -53,7 +53,7 @@ with a custom configuration copied in.
 There are two ways to forward requests to the application. Using url paths or subdomain. Both of the approaches are demonstrated. If youa
 are not sure which one to pick go for the subdomains.
 
-.. code-block: console
+.. code-block:: console
 
     server {
         listen 80;
@@ -72,7 +72,7 @@ are not sure which one to pick go for the subdomains.
         }
     }    
 
-.. code-block: console
+.. code-block:: console
 
     server {
         listen 80;
@@ -103,7 +103,7 @@ Docker-compose project
 
 The docker-compose.yaml file brings all the applications together. 
 
-.. code-block: yaml
+.. code-block:: yaml
 
     version: '3'
     services:
